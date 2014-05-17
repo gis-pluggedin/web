@@ -70,15 +70,14 @@ h3{
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e8e5e8), color-stop(1, #d4d2d4) );
-    background:-moz-linear-gradient( center top, #e8e5e8 5%, #d4d2d4 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e5e8', endColorstr='#d4d2d4');
-    background-color:#e8e5e8;
-
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bfbdbf), color-stop(1, #b5b3b5) );
+    background:-moz-linear-gradient( center top, #bfbdbf 5%, #b5b3b5 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfbdbf', endColorstr='#b5b3b5');
+    background-color:#bfbdbf;
 }
-.highlight:hover {
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d4d2d4), color-stop(1, #e8e5e8) );
-    background:-moz-linear-gradient( center top, #d4d2d4 5%, #e8e5e8 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d4d2d4', endColorstr='#e8e5e8');
-    background-color:#d4d2d4;
-}
+.classname:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b5b3b5), color-stop(1, #bfbdbf) );
+    background:-moz-linear-gradient( center top, #b5b3b5 5%, #bfbdbf 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b5b3b5', endColorstr='#bfbdbf');
+    background-color:#b5b3b5;
+ }
