@@ -4,18 +4,39 @@ angular.module('app', [])
 	'$scope',
 
 	function($scope) {
-		$scope.pm = {
-			layers: [
-				{ name:'layer 1', url:'' },
-				{ name:'layer 2', url:'' }
-			]
-		}
-
 		var map = L.map('map').setView([37.27, -76.70], 13);
 
-		L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
-		    maxZoom: 18
-		}).addTo(map);
+        $scope.pm = {
+            themes: [
+                {
+                    name:'Parks & Rec',
+                    layers:[
+                        {
+                            url:'http://koop.dc.esri.com/github/gis-pluggedin/data/blob::athleticFields',
+                            name: 'Athletic Field',
+                            style: {},
+                            onclick: {}
+                        }
+                    ],
+                    active: false
+                },
+                {
+                    name:'Parks & Rec2',
+                    layers:[
+                        {
+                            url:'http://koop.dc.esri.com/github/gis-pluggedin/data/blob::athleticFields',
+                            name: 'Athletic Field',
+                            style: {},
+                            onclick: {}
+                        }
+                    ],
+                    active: false
+                }
+            ]
+        };
 
+        for (var i=0; i < $scope.pm.themes.length; i++){
+            console.log(i);
+        }
 	}
 ]);

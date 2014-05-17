@@ -19,6 +19,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="js/esri-leaflet/src/EsriLeaflet.js"></script>
     <script src="js/main.js"></script>
 </head>
 
@@ -29,8 +30,8 @@
 			<a href="#"
 				class="btn btn-default btn-xs"
 				type="button"
-				ng-repeat="layer in pm.layers">
-				{{layer.name}}
+				ng-repeat="theme in pm.themes">
+				{{theme.name}}
 			</a>
 		</div>
 	</div>
