@@ -16,14 +16,30 @@ angular.module('app', [])
 
         $scope.pm = {
             layers: [
-                { name:'layer 1', url:'' },
-                { name:'layer 2', url:'' }
+                {
+                    name:'Parks & Rec',
+                    layers:[
+                        {
+                            url:'http://koop.dc.esri.com/github/gis-pluggedin/data/blob::athleticFields',
+                            name: 'Athletic Field',
+                            style: {},
+                            onclick: {}
+                        }
+                    ],
+                    state:false
+                },
+                [{ name:'layer 2', url:'' }]
             ]
+        };
+
+        for (var i=0; i < $scope.pm.layers.length; i++){
+            alert(i);
+
         }
 
-		L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
-		    maxZoom: 18
-		}).addTo(map);
+
+
+
 
 	}
 ]);
