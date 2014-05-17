@@ -25,8 +25,14 @@
 <body ng-controller="AppCtrl" ng-cloak>
 	<div id="map-ui">
 		<img src="img/williamsburgCitySeal.gif" width="220px" />
-		<a href="#" class="btn btn-default btn-xs" type="button" ng-repeat="layer in pm.layers">{{layer.name}}</a>
-
+		<div class="btn-group-vertical">
+			<a href="#"
+				class="btn btn-default btn-xs"
+				type="button"
+				ng-repeat="layer in pm.layers">
+				{{layer.name}}
+			</a>
+		</div>
 	</div>
 	<div id="map"></div>
 </body>
