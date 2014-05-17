@@ -35,8 +35,9 @@ angular.module('app', [])
             ]
         };
 
-        for (var i=0; i < $scope.pm.themes.length; i++){
-            console.log(i);
+        for (var i=0; i < $scope.pm.themes[0].layers.length; i++){
+            console.log($scope.pm.themes[0].layers[i].url);
+            L.esri.featureLayer($scope.pm.themes[0].layers[i].url).addTo(map);
         }
 	}
 ]);
