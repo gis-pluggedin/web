@@ -12,14 +12,14 @@ angular.module('app', [])
                     name:'Parks & Rec',
                     layers:[
                         {
-                            url:'http://koop.dc.esri.com/github/gis-pluggedin/data/blob::athleticFields',
+                            url:'https://raw.githubusercontent.com/gis-pluggedin/data/master/athleticFields.geojson',
                             name: 'Athletic Field',
                             style: {},
                             onclick: {}
                         }
                     ],
                     active: false
-                },
+                }/*,
                 {
                     name:'Parks & Rec2',
                     layers:[
@@ -31,7 +31,7 @@ angular.module('app', [])
                         }
                     ],
                     active: false
-                }
+                }*/
             ]
         };
 
