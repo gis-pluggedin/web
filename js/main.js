@@ -4,7 +4,7 @@ angular.module('app', [])
 	'$scope',
 
 	function($scope) {
-		var map = L.map('map').setView([37.27, -76.70], 13);
+		var map = L.mapbox.map('map', 'jonahadkins.map-xyxnaoxk').setView([37.27, -76.70], 13);
 
         $scope.pm = {
             themes: [
@@ -12,14 +12,14 @@ angular.module('app', [])
                     name:'Parks & Rec',
                     layers:[
                         {
-                            url:'https://raw.githubusercontent.com/gis-pluggedin/data/master/athleticFields.geojson',
+                            url:'data/athleticFields.geojson',
                             name: 'Athletic Field',
                             style: {},
                             onclick: {}
                         }
                     ],
-                    active: false
-                }/*,
+                    active: true
+                },
                 {
                     name:'Parks & Rec2',
                     layers:[
@@ -31,13 +31,16 @@ angular.module('app', [])
                         }
                     ],
                     active: false
-                }*/
+                }
             ]
         };
 
         for (var i=0; i < $scope.pm.themes[0].layers.length; i++){
             console.log($scope.pm.themes[0].layers[i].url);
-            L.esri.featureLayer($scope.pm.themes[0].layers[i].url).addTo(map);
+            var featureLayer = L.mapbox.featureLayer()
+                .loadURL($scope.pm.themes[0].layers[i].url)
+                .addTo(map);
+
         }
 	}
 ]);

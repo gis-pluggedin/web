@@ -20,3 +20,65 @@ img {
     display:block;
     margin:auto;
 }
+
+#map-ui{
+    padding:20px !important;
+    width:240px;
+}
+
+h3{
+    text-align:center;
+}
+
+.btn-group-vertical{
+    width:200px;
+    padding-top:20px;
+}
+.btn {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+    background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+    background-color:#ededed;
+    color:#777777;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #ffffff;
+
+    -webkit-border-radius: 6px 6px 6px 6px !important;
+    border-radius:6px 6px 6px 6px !important;
+    -moz-border-radius:6px 6px 6px 6px !important;
+
+    width:100% !important;
+    margin-bottom:10px;
+
+}
+.btn:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+    background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+    background-color:#dfdfdf;
+}
+
+.highlight {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e8e5e8), color-stop(1, #d4d2d4) );
+    background:-moz-linear-gradient( center top, #e8e5e8 5%, #d4d2d4 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e5e8', endColorstr='#d4d2d4');
+    background-color:#e8e5e8;
+
+}
+.highlight:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d4d2d4), color-stop(1, #e8e5e8) );
+    background:-moz-linear-gradient( center top, #d4d2d4 5%, #e8e5e8 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d4d2d4', endColorstr='#e8e5e8');
+    background-color:#d4d2d4;
+}
