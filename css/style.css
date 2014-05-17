@@ -1,0 +1,17 @@
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#map-ui {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  width: 220px;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.8);
+}
