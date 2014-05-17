@@ -5,6 +5,12 @@ angular.module('app', [])
 	'$location',
 
 	function($scope, $location) {
+		$scope.pm = {
+			layers: [
+				{ name:'layer 1', url:'' },
+				{ name:'layer 2', url:'' }
+			]
+		}
 
 		var map = L.map('map').setView([37.27, -76.70], 13);
 
