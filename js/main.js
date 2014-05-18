@@ -7,52 +7,45 @@ angular.module('app', [])
 		var map = L.mapbox.map('map', 'jonahadkins.i94mjj8j').setView([37.27, -76.70], 13);
 
         $scope.pm = {
+            activeLayer: undefined,
             layers: [
                 {
-                    id: 0,
                     name: 'Athletic Fields',
                     url:'data/athleticFields.geojson',
-                    active:false,
-                    style:{
-                        "color": "#ff7800",
-                        "weight": 5,
-                        "opacity": 0.65
-                    }
-                },{
-                    id: 1,
+                    type:'json',
+                    layerRef: undefined
+                },
+                {
                     name: 'Parks',
-                    url:'data/parks.geojson',
-                    active:true,
-                    style:{
-                        "color": "#348756",
-                        "weight": 5,
-                        "opacity": 0.65
-                    }
-                },{
-                    id: 2,
-                    name: 'Voting Districts',
-                    url:'data/votingDistricts.geojson',
-                    active:false,
-                    style:{
-                        "color": "#ff7800",
-                        "weight": 5,
-                        "opacity": 0.65
-                    }
+                    url:'jonahadkins.WMSBG_Parks',
+                    type:'mapbox',
+                    layerRef: undefined
                 }
-            ]
+            ],
         };
 
-        $scope.toggleLayer = function(id) {
-            var featureLayer = L.mapbox.featureLayer()
-                .loadURL($scope.pm.layers[id].url);
+        $scope.toggleLayer = function(index) {
+            if (index === $scope.pm.activeLayer) return;
 
-            // function to run once marker has loaded
-            featureLayer.on('ready', function(){
-                // navigate the GeoJSON to get to the coordinates
-                var geojson = featureLayer.getGeoJSON();
+            if ($scope.pm.activeLayer !== undefined) {
+                map.removeLayer($scope.pm.layers[$scope.pm.activeLayer].layerRef);
+            }
+            if ($scope.pm.layers[index].type === 'json'){
+                $scope.pm.layers[index].layerRef = L.mapbox.featureLayer()
+                    .loadURL($scope.pm.layers[index].url)
+                    .addTo(map);
+            } else if ($scope.pm.layers[index].type == 'mapbox'){
+                $scope.pm.layers[index].layerRef = L.mapbox.tileLayer($scope.pm.layers[index].url)
+					.addTo(map);
+            }
 
-                L.geoJson(geojson, { style: $scope.pm.layers[id].style }).addTo(map);
-            });
+            $scope.pm.activeLayer = index;
         }
+		
+		function _init() {
+	        $scope.toggleLayer(0);
+		}
+
+		_init();
 	}
 ]);
