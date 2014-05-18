@@ -19,7 +19,7 @@ angular.module('app', [])
                         "opacity": 0.65
                     }
                 },{
-                    id: 0,
+                    id: 1,
                     name: 'Parks',
                     url:'data/parks.geojson',
                     active:true,
@@ -29,7 +29,7 @@ angular.module('app', [])
                         "opacity": 0.65
                     }
                 },{
-                    id: 1,
+                    id: 2,
                     name: 'Voting Districts',
                     url:'data/votingDistricts.geojson',
                     active:false,
