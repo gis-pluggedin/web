@@ -12,14 +12,12 @@ angular.module('app', [])
                 {
                     name: 'Athletic Fields',
                     url:'data/athleticFields.geojson',
-                    active: false,
                     type:'json',
                     layerRef: undefined
                 },
                 {
                     name: 'Parks',
-                    url:'jonahadkins.WMSBG_Toner',
-                    active: false,
+                    url:'jonahadkins.WMSBG_Parks',
                     type:'mapbox',
                     layerRef: undefined
                 }
@@ -27,26 +25,21 @@ angular.module('app', [])
         };
 
         $scope.toggleLayer = function(index) {
-            if (index === $scope.pm.activeLayer) {
-                return;
-            }
-            else {
-                if ($scope.pm.activeLayer !== undefined) {
-                    map.removeLayer($scope.pm.layers[$scope.pm.activeLayer].layerRef);
-                    $scope.pm.layers[$scope.pm.activeLayer].active = !$scope.pm.layers[$scope.pm.activeLayer].active;
-                }
-                if ($scope.pm.layers[index].type === 'json'){
-                    $scope.pm.layers[index].layerRef = L.mapbox.featureLayer()
-                        .loadURL($scope.pm.layers[index].url)
-                        .addTo(map);
-                } else if ($scope.pm.layers[index].type == 'mapbox'){
-                    $scope.pm.layers[index].layerRef = L.mapbox.tileLayer($scope.pm.layers[index].url)
-						.addTo(map);
-                }
+            if (index === $scope.pm.activeLayer) return;
 
-                $scope.pm.activeLayer = index;
-                $scope.pm.layers[index].active = !$scope.pm.layers[index].active;
+            if ($scope.pm.activeLayer !== undefined) {
+                map.removeLayer($scope.pm.layers[$scope.pm.activeLayer].layerRef);
             }
+            if ($scope.pm.layers[index].type === 'json'){
+                $scope.pm.layers[index].layerRef = L.mapbox.featureLayer()
+                    .loadURL($scope.pm.layers[index].url)
+                    .addTo(map);
+            } else if ($scope.pm.layers[index].type == 'mapbox'){
+                $scope.pm.layers[index].layerRef = L.mapbox.tileLayer($scope.pm.layers[index].url)
+					.addTo(map);
+            }
+
+            $scope.pm.activeLayer = index;
         }
 		
 		function _init() {

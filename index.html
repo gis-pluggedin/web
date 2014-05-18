@@ -30,7 +30,7 @@
 		<div class="btn-group-vertical">
 			<a href="#"
 				class="btn btn-default btn-xs"
-                ng-class="{'highlight': layer.active}"
+                ng-class="{'highlight': pm.activeLayer === $index}"
 				type="button"
 				ng-repeat="layer in pm.layers"
 				ng-click="toggleLayer($index)">
