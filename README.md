@@ -5,8 +5,7 @@ This project was created by [Chris Fricke](https://github.com/bmoregeo), [Corey 
 
 =======================
 
-Currently, the City of Williamsburg [offers it's GIS data](http://www.williamsburgva.gov/Index.aspx?page=793) as a downloadable  
-zipped shapefile.
+Currently, the City of Williamsburg [offers it's GIS data](http://www.williamsburgva.gov/Index.aspx?page=793) as a downloadable zipped shapefile.
 
 The city's current GIS site is an [ArcGIS Flex Viewer](http://williamsburg.timmons.com/flex/index.html) implementation.
 
