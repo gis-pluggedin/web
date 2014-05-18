@@ -6,12 +6,6 @@ angular.module('app', [])
 	function($scope) {
 		var map = L.mapbox.map('map').setView([37.27, -76.70], 13);
 
-        var baseLayers = {
-            "Mapbox": L.mapbox.tileLayer('jonahadkins.i94mjj8j').addTo(map),
-            "Testing": L.mapbox.tileLayer('examples.map-zgrqqx0w')
-        };
-
-        L.control.layers(baseLayers, {}, {'position':'bottomleft'}).addTo(map);
 
         $scope.pm = {
             activeLayer: undefined,
@@ -33,6 +27,7 @@ angular.module('app', [])
                     url:'jonahadkins.WMSBG_Voting',
                     type:'mapbox',
                     layerRef: undefined
+
                 }
             ]
         };
@@ -60,8 +55,21 @@ angular.module('app', [])
         }
 		
 		function _init() {
-	        $scope.toggleLayer(0);
-		}
+
+            /*
+            var baseLayers = {
+
+                "Mapbox": L.mapbox.tileLayer('jonahadkins.i94mjj8j').addTo(map),
+                "Testing": L.mapbox.tileLayer('examples.map-zgrqqx0w')
+            };
+            L.control.layers(baseLayers, {'activelayer': $scope.pm[$scope.pm.activeLayer].layerRef}, {'position':'bottomleft'}).addTo(map);
+            */
+            L.mapbox.tileLayer('jonahadkins.i94mjj8j').addTo(map)
+            $scope.toggleLayer(0);
+
+
+
+        }
 
 		_init();
 	}
