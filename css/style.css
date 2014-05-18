@@ -50,7 +50,7 @@ h3{
     text-decoration:none;
     text-align:center;
 
-
+    border-width:0;
     width:100% !important;
     margin-bottom:10px;
     border-width:0;
@@ -63,7 +63,6 @@ h3{
 
     background-color:#325281;
     color:#325281;
-    border-width:0;
 }
 
 .highlight {
