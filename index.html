@@ -26,14 +26,15 @@
 <body ng-controller="AppCtrl" ng-cloak>
 	<div id="map-ui">
 		<img src="img/WGCOL_clear.png" width="200px" />
-        <h3>Themes</h3>
+        <h3>Layers</h3>
 		<div class="btn-group-vertical">
 			<a href="#"
 				class="btn btn-default btn-xs"
-                ng-class="{'highlight': theme.active}"
+                ng-class="{'highlight': layer.active}"
 				type="button"
-				ng-repeat="theme in pm.themes">
-				{{theme.name}}
+				ng-repeat="layer in pm.layers"
+				ng-click="toggleLayer($index)">
+				{{layer.name}}
 			</a>
 		</div>
 	</div>

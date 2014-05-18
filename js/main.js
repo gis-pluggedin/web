@@ -4,43 +4,27 @@ angular.module('app', [])
 	'$scope',
 
 	function($scope) {
-		var map = L.mapbox.map('map', 'jonahadkins.map-xyxnaoxk').setView([37.27, -76.70], 13);
+		var map = L.mapbox.map('map', 'jonahadkins.i94mjj8j').setView([37.27, -76.70], 13);
 
         $scope.pm = {
-            themes: [
+            layers: [
                 {
-                    name:'Parks & Rec',
-                    layers:[
-                        {
-                            url:'data/athleticFields.geojson',
-                            name: 'Athletic Field',
-                            style: {},
-                            onclick: {}
-                        }
-                    ],
-                    active: true
+                    id: 0,
+                    name: 'Athletic Fields',
+                    url:'data/athleticFields.geojson'
                 },
                 {
-                    name:'Parks & Rec2',
-                    layers:[
-                        {
-                            url:'http://koop.dc.esri.com/github/gis-pluggedin/data/blob::athleticFields',
-                            name: 'Athletic Field',
-                            style: {},
-                            onclick: {}
-                        }
-                    ],
-                    active: false
+                    id: 1,
+                    name: 'Buildings',
+                    url:'data/buildings.geojson'
                 }
-            ]
+            ],
         };
 
-        for (var i=0; i < $scope.pm.themes[0].layers.length; i++){
-            console.log($scope.pm.themes[0].layers[i].url);
+        $scope.toggleLayer = function(id) {
             var featureLayer = L.mapbox.featureLayer()
-                .loadURL($scope.pm.themes[0].layers[i].url)
+                .loadURL($scope.pm.layers[id].url)
                 .addTo(map);
-
         }
 	}
 ]);
