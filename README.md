@@ -19,7 +19,7 @@ This site uses:
 * Implement Vector Tiles With Tilemill 2  
 * Add Search Capability For Parcels, Addresses
 * Add Elevation Data Or Lidar From Either USDA Or [OpenTopography.Org](http://opentopo.sdsc.edu/gridsphere/gridsphere?cid=datasets)
-* Add More Themes From Available City Layers
+* Add More Themes From vagAvailable City Layers
 
 =======================  
 #### Background  
@@ -31,5 +31,7 @@ This project was created by [Chris Fricke](https://github.com/bmoregeo), [Corey 
   
 
 ###### What Didn't Work
-* 
+* Koop
+  * Major Node dependency isssues with standing Koop up on Ubuntu 14.04 on an Amazon micro instance.
+  * Overwhelmed Esri DC R&D center's server.
 
