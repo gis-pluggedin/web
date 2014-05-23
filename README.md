@@ -15,11 +15,13 @@ This site uses:
 =======================  
 #### ToDo
 
-* Add Virginia Orthophotography [REST Service](http://gismaps.vita.virginia.gov/arcgis/rest/services/MostRecentImagery/MostRecentImagery_Lambert/MapServer) As Secondary Basemap  
+* Add Virginia Orthophotography [REST Service](http://gismaps.vita.virginia.gov/arcgis/rest/services/MostRecentImagery/MostRecentImagery_Lambert/MapServer) As Secondary Basemap 
+  * Define a basemap for each theme, but also allow user to switch the basemap.  Ex. Parks & Rec has imagery.
 * Implement Vector Tiles With Tilemill 2  
+  * Figure a way to serve vector tiles from someplace other than Mapbox!
 * Add Search Capability For Parcels, Addresses
 * Add Elevation Data Or Lidar From Either USDA Or [OpenTopography.Org](http://opentopo.sdsc.edu/gridsphere/gridsphere?cid=datasets)
-* Add More Themes From vagAvailable City Layers
+* Add More Themes From Available City Layers
 
 =======================  
 #### Background  
@@ -27,11 +29,14 @@ This project was created by [Chris Fricke](https://github.com/bmoregeo), [Corey 
 
 ##### What Worked
 * Open Data!
-* 
+* Proved that it is possible to throw something together in limited ammount of time.
+* Friendship!
   
 
 ###### What Didn't Work
 * Koop
   * Major Node dependency isssues with standing Koop up on Ubuntu 14.04 on an Amazon micro instance.
   * Overwhelmed Esri DC R&D center's server.
+* GeoJSON
+  * GeoJSON is a big format for transmitting information over the web.  The parcels geojson file is around 8MB.  This is far to large to transmit willy-nilly.We need to figure a way to shrink the size of the transmitted data.
 
