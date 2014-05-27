@@ -39,4 +39,4 @@ This project was created by [Chris Fricke](https://github.com/bmoregeo), [Corey 
   * Overwhelmed Esri DC R&D center's server.
 * GeoJSON
   * GeoJSON is a big format for transmitting information over the web.  The parcels geojson file is around 8MB.  This is far to large to transmit willy-nilly.We need to figure a way to shrink the size of the transmitted data.
-
+  * Consuming GeoJSON from Github resulted in CORS issues. The application being hosted at github.com and the data being served via githubrawusercontent.com triggered it. There are several promising ways around this - need to investigate.
