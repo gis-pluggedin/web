@@ -12,6 +12,12 @@ This site uses:
 
 #### [Click Here!](http://gis-pluggedin.github.io/web/) view the live implementation.
 
+=======================
+#### Design
+
+This viewer is based around the idea of 'Themes'.  Users do not have the ability to turn individual layers on and off.  Instead they users select from a list of themes. As GIS people, it is our job to provide informational views of the data. Distinct layer control is a cop out for well designed maps and applications.
+
+
 =======================  
 #### ToDo
 
