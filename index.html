@@ -33,7 +33,7 @@
                 ng-class="{'highlight': pm.activeLayer === $index}"
 				type="button"
 				ng-repeat="layer in pm.layers"
-				ng-click="toggleLayer($index)">
+				ng-click="toggleLayer(layer.id)">
 				{{layer.name}}
 			</a>
 		</div>

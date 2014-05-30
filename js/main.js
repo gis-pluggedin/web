@@ -9,22 +9,25 @@ angular.module('app', [])
 
         $scope.pm = {
             activeLayer: undefined,
-            availableLayers: [],
+            availableLayers: {},
             layers: [
                 {
                     name: 'Parks',
+                    id: 'parks',
                     url:'jonahadkins.WMSBG_Parks',
                     type:'mapbox',
                     layerRef: undefined
                 },
                 {
                     name: 'Parcels',
+                    id: 'parcels',
                     url:'jonahadkins.WMSBG_Parcels',
                     type:'mapbox',
                     layerRef: undefined
                 },
                 {
                     name: 'Voting Precincts',
+                    id:'voting',
                     url:'jonahadkins.WMSBG_Voting',
                     type:'mapbox',
                     layerRef: undefined
@@ -47,8 +50,8 @@ angular.module('app', [])
             return layer;
         };
 
-        $scope.toggleLayer = function(index) {
-            if (index === $scope.pm.activeLayer) return;
+        $scope.toggleLayer = function(id) {
+            if (id === $scope.pm.activeLayer) return;
 
             try{
                 map.removeLayer($scope.pm.availableLayers[$scope.pm.activeLayer]);
@@ -56,10 +59,10 @@ angular.module('app', [])
                 console.log('No Layers to Remove')
             }
 
-            $scope.pm.availableLayers[index].setZIndex(7);
-            map.addLayer($scope.pm.availableLayers[index]);
+            $scope.pm.availableLayers[id].setZIndex(7);
+            map.addLayer($scope.pm.availableLayers[id]);
 
-            $scope.pm.activeLayer = index;
+            $scope.pm.activeLayer = id;
 
             console.log($scope.pm.activeLayer);
         };
@@ -72,10 +75,11 @@ angular.module('app', [])
             };
 
             for (var i=0; i<$scope.pm.layers.length; i++){
-                $scope.pm.availableLayers.push($scope.addLayer($scope.pm.layers[i]))
+                $scope.pm.availableLayers[$scope.pm.layers[i].id] = $scope.addLayer($scope.pm.layers[i]);
             }
             L.control.layers(baseLayers, {}, {position:'topleft'}).addTo(map);
-            $scope.toggleLayer(0);
+
+            $scope.toggleLayer($scope.pm.layers[0].id);
         }
 
 		_init();
