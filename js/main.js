@@ -9,6 +9,7 @@ angular.module('app', [])
 
         $scope.pm = {
             activeLayer: undefined,
+            availableLayers: {},
             layers: [
                 {
                     name: 'Parks',
@@ -31,6 +32,20 @@ angular.module('app', [])
                 }
             ]
         };
+        $scope.addLayer = function(layerConfig){
+            /*
+             Use the layer config to initialize the layer to the map.
+             */
+            var layer;
+            if (layerConfig.type === 'json'){
+                layer = L.mapbox.featureLayer().loadURL(layerConfig.url)
+            } else if (layerConfig.type == 'mapbox'){
+                layer = L.mapbox.tileLayer(layerConfig.url)
+            } else {
+                console.log('Cannot load ' + layerConfig.name + '. Layer type does not exist.')
+            }
+            return layer;
+        };
 
         $scope.toggleLayer = function(index) {
             if (index === $scope.pm.activeLayer) return;
@@ -52,23 +67,21 @@ angular.module('app', [])
             }
 
             $scope.pm.activeLayer = index;
-        }
+        };
 		
 		function _init() {
-
-            /*
             var baseLayers = {
 
                 "Mapbox": L.mapbox.tileLayer('jonahadkins.i94mjj8j').addTo(map),
                 "Testing": L.mapbox.tileLayer('examples.map-zgrqqx0w')
             };
-            L.control.layers(baseLayers, {'activelayer': $scope.pm[$scope.pm.activeLayer].layerRef}, {'position':'bottomleft'}).addTo(map);
-            */
-            L.mapbox.tileLayer('jonahadkins.i94mjj8j').addTo(map)
-            $scope.toggleLayer(0);
 
-
-
+            for (var i=0; i<$scope.pm.layers.length; i++){
+                $scope.pm.availableLayers[$scope.pm.layers[i].name] = ($scope.addLayer($scope.pm.layers[i]))
+            }
+            L.control.layers(baseLayers, $scope.pm.availableLayers).addTo(map);
+            //$scope.toggleLayer(0);
+            console.log($scope.pm.availableLayers)
         }
 
 		_init();
